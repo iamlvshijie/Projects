@@ -2,23 +2,23 @@ echo
 echo hal_template generating...
 
 
-cd.>hal_i2c.h
-echo /*  @file:>>hal_i2c.h
-echo 	@author:>>hal_i2c.h
-echo 	@revision:>>hal_i2c.h
-echo 	@history:>>hal_i2c.h
-echo 	@copyright:>>hal_i2c.h
-echo */>>hal_i2c.h
-echo #include "include.h">>hal_i2c.h
+cd.>hal_xxx.h
+echo /*  @file:>>hal_xxx.h
+echo 	@author:>>hal_xxx.h
+echo 	@revision:>>hal_xxx.h
+echo 	@history:>>hal_xxx.h
+echo 	@copyright:>>hal_xxx.h
+echo */>>hal_xxx.h
+echo #include "include.h">>hal_xxx.h
 
-cd.>hal_i2c.c
-echo /*  @file:>>hal_i2c.c
-echo 	@author:>>hal_i2c.c
-echo 	@revision:>>hal_i2c.c
-echo 	@history:>>hal_i2c.c
-echo 	@copyright:>>hal_i2c.c
-echo */>>hal_i2c.c
-echo #include "hal_i2c.h">>hal_i2c.c
+cd.>hal_xxx.c
+echo /*  @file:>>hal_xxx.c
+echo 	@author:>>hal_xxx.c
+echo 	@revision:>>hal_xxx.c
+echo 	@history:>>hal_xxx.c
+echo 	@copyright:>>hal_xxx.c
+echo */>>hal_xxx.c
+echo #include "hal_xxx.h">>hal_xxx.c
 
 
 
