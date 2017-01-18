@@ -7,10 +7,13 @@
         注意：STC-ISP软件中的“最低波特率” 可选“1200bps/2400bps/4800bps”，
               本程序自动检测适应。
 ***************************************************************/
-#define uint8  unsigned char
-#define uint16 unsigned int        
-#include "STC15F104E.H" 
+     
+#include "STC15Fxxxx.H" 
 
+
+#define uint8  unsigned char
+#define uint16 unsigned int   
+	
 sbit RXB   = P3^4;
 sbit Key   = P3^1;   //自动/手动开关（根据需要使用）
 sbit Relay = P3^3;         //继电器
