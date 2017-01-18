@@ -8,7 +8,7 @@
               本程序自动检测适应。
 ***************************************************************/
      
-#include "STC15Fxxxx.H" 
+#include "config.h" 
 
 
 #define uint8  unsigned char
