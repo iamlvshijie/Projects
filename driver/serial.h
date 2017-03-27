@@ -1,6 +1,6 @@
 #ifndef __SERIAL_H
 #define __SERIAL_H
-#include "stm32f0xx.h"
+#include "hal_uart.h"
 
 typedef struct{
 	uint8_t *Name;
@@ -10,7 +10,7 @@ typedef struct{
 	uint8_t  Parity;   
 	uint8_t  TransMode;      
 	uint8_t  IntType;
-}Serial_ParaDef; 
+}serial_cfg_t; 
 
 
 #endif

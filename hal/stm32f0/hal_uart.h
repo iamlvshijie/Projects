@@ -10,51 +10,25 @@
 /* Includes ------------------------------------------------------------------*/
 #include "bsp.h"
 
-/** @addtogroup Utilities
-  * @{
-  */
-
 
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
-uint32_t HAL_UART_DeInit(COM_TypeDef COM);	 
-uint32_t HAL_UART_Init(COM_TypeDef COM,USART_InitTypeDef* USART_InitStructure); 
-uint32_t HAL_UART_Send_Byte(COM_TypeDef COM, uint8_t ch);
-uint32_t HAL_UART_Receive_Byte(COM_TypeDef COM, uint8_t*ch, uint32_t*timeout);
+u32_t hal_uart_DeInit(COM_TypeDef COM);	 
+u32_t hal_uart_Init(COM_TypeDef COM,USART_InitTypeDef* USART_InitStructure); 
+u32_t hal_uart_Send_Byte(COM_TypeDef COM, uint8_t ch);
+u32_t hal_uart_Receive_Byte(COM_TypeDef COM, uint8_t*ch, u32_t*timeout);
 	 
-uint32_t HAL_UART_Send_Buffer(COM_TypeDef COM, uint8_t * pkt, int16_t len);
-uint32_t HAL_UART_Receive_Buffer(COM_TypeDef COM,uint8_t * pkt, int16_t len, uint32_t*timeout);
+u32_t hal_uart_Send_Buffer(COM_TypeDef COM, uint8_t * pkt, int16_t len);
+u32_t hal_uart_Receive_Buffer(COM_TypeDef COM,uint8_t * pkt, int16_t len, u32_t*timeout);
 
-uint32_t HAL_UART_Send_String(COM_TypeDef COM, uint8_t *s);
-/** @defgroup 
-  * @{
-  */ 
+u32_t hal_uart_Send_String(COM_TypeDef COM, uint8_t *s);
 
-	 
-/**
-  * @}
-  */
   
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* __HAL_UART_H */
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */  
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

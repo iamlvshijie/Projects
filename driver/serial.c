@@ -1,4 +1,3 @@
-#include "hal_uart.h"
 #include <stdio.h>
 #include "serial.h"
 
@@ -42,7 +41,7 @@ GETCHAR_PROTOTYPE
 	return ch;
 }
 
-void Serial_Init(Serial_ParaDef para)
+void serial_init(serial_cfg_t cfg)
 {
 
 

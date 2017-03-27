@@ -1,12 +1,20 @@
+/*  
+	@file:			hal_systick.c
+	@author:		Jacob Lui
+	@description: hal systick for yd_stm32f0
+	@revision:	1.0
+	@history:		2017.3.26
+	@copyright: Jacob
+*/
+
 #include "hal_systick.h"
 
-static __IO uint32_t TimingDelay=0;
-__IO uint32_t TimingOut=0;
+static __IO u32_t TimingDelay=0;
+__IO u32_t TimingOut=0;
 
-
-uint32_t HAL_Systick_Init(void)
+u32_t hal_systick_init(u32_t freq)
 {
-	if (SysTick_Config(SystemCoreClock/100000))
+	if (SysTick_Config(SystemCoreClock/freq))
 	{ 
 		/* Capture error */
 		return ERROR;
@@ -15,9 +23,9 @@ uint32_t HAL_Systick_Init(void)
 	return SUCCESS;
 }
 
-uint32_t HAL_Systick_Delay(uint32_t usTime)
+u32_t hal_systick_delay(u32_t us_time)
 {
-	TimingDelay = usTime;
+	TimingDelay = us_time;
 
   while(TimingDelay != 0);
 
@@ -40,13 +48,13 @@ void HAL_Systick_Update(void)
 	
 	
 }
-void HAL_Systick_Set_Timeout(uint32_t timeout)
+void HAL_Systick_Set_Timeout(u32_t timeout)
 {
 	TimingOut = timeout;
 }
 
 
-uint32_t* HAL_Systick_Get_Timeout(void)
+u32_t* HAL_Systick_Get_Timeout(void)
 {
 	return &TimingOut;
 }
@@ -62,12 +70,5 @@ void SysTick_Handler(void)
   { 
     TimingDelay--;
   }
-
-	
-	//HAL_Systick_Update();
-
-//	Systick_Cnt++;
-//	if( (Systick_Cnt&LED_Blink_Interval) == LED_Blink_Interval )
-//		LED_Blink_Int();
-	
 }
+/*********************************** END OF FILE *******************************/

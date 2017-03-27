@@ -1,0 +1,41 @@
+Dependencies for Project 'yd_stm32f051c8_test', Target 'vs10x3_test': (DO NOT MODIFY !)
+F (.\startup_stm32f0xx.s)(0x4F6BFDB8)(--cpu Cortex-M0 -g --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx--list .\startup_stm32f0xx.lst --xref -o .\startup_stm32f0xx.o --depend .\startup_stm32f0xx.d)
+F (.\app.c)(0x58D7C874)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\app.o --omf_browse .\app.crf --depend .\app.d)
+I (app.h)(0x58D7C8A7)
+F (.\stm32f0xx_it.c)(0x58D7C8C2)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\stm32f0xx_it.o --omf_browse .\stm32f0xx_it.crf --depend .\stm32f0xx_it.d)
+I (stm32f0xx_it.h)(0x58D7C8C2)
+F (..\..\driver\led.c)(0x58D7C8D4)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (..\..\driver\led.h)(0x58D7C32F)
+F (..\..\brd\yd_stm32f051c8\bsp.c)(0x58D7CAE0)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\bsp.o --omf_browse .\bsp.crf --depend .\bsp.d)
+I (..\..\brd\yd_stm32f051c8\bsp.h)(0x58D7CB16)
+F (..\..\hal\stm32f0\hal_io.c)(0x58D7C7AA)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\hal_io.o --omf_browse .\hal_io.crf --depend .\hal_io.d)
+I (..\..\hal\stm32f0\hal_io.h)(0x58D7CE2B)
+I (..\..\hal\stm32f0\hal_core.h)(0x58D7CDAA)
+I (C:\Programs\Keil\ARM\Inc\ST\STM32F0xx\stm32f0xx.h)(0x56A70D6C)
+I (C:\Programs\Keil\ARM\CMSIS\Include\core_cm0.h)(0x56A6FCA6)
+I (C:\Programs\Keil\ARM\ARMCC\include\stdint.h)(0x56A6FCAC)
+I (C:\Programs\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x56A6FCA4)
+I (C:\Programs\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x56A6FCA6)
+I (C:\Programs\Keil\ARM\Inc\ST\STM32F0xx\system_stm32f0xx.h)(0x56A70D64)
+F (..\..\hal\stm32f0\hal_core.c)(0x58D7CD93)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\hal_core.o --omf_browse .\hal_core.crf --depend .\hal_core.d)
+I (..\..\hal\stm32f0\hal_core.h)(0x58D7CDAA)
+I (C:\Programs\Keil\ARM\Inc\ST\STM32F0xx\stm32f0xx.h)(0x56A70D6C)
+I (C:\Programs\Keil\ARM\CMSIS\Include\core_cm0.h)(0x56A6FCA6)
+I (C:\Programs\Keil\ARM\ARMCC\include\stdint.h)(0x56A6FCAC)
+I (C:\Programs\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x56A6FCA4)
+I (C:\Programs\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x56A6FCA6)
+I (C:\Programs\Keil\ARM\Inc\ST\STM32F0xx\system_stm32f0xx.h)(0x56A70D64)
+F (..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_exti.c)(0x571BE590)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\stm32f0xx_exti.o --omf_browse .\stm32f0xx_exti.crf --depend .\stm32f0xx_exti.d)
+F (..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_gpio.c)(0x571BE590)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\stm32f0xx_gpio.o --omf_browse .\stm32f0xx_gpio.crf --depend .\stm32f0xx_gpio.d)
+F (..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_i2c.c)(0x571BE590)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\stm32f0xx_i2c.o --omf_browse .\stm32f0xx_i2c.crf --depend .\stm32f0xx_i2c.d)
+F (..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_misc.c)(0x571BE590)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\stm32f0xx_misc.o --omf_browse .\stm32f0xx_misc.crf --depend .\stm32f0xx_misc.d)
+F (..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_spi.c)(0x571BE590)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\stm32f0xx_spi.o --omf_browse .\stm32f0xx_spi.crf --depend .\stm32f0xx_spi.d)
+F (..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_usart.c)(0x571BE590)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\stm32f0xx_usart.o --omf_browse .\stm32f0xx_usart.crf --depend .\stm32f0xx_usart.d)
+F (..\..\lib\stm32f0_std_lib\1.0\system_stm32f0xx.c)(0x571BE590)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\system_stm32f0xx.o --omf_browse .\system_stm32f0xx.crf --depend .\system_stm32f0xx.d)
+I (..\..\lib\stm32f0_std_lib\1.0\stm32f0xx.h)(0x571BE590)
+I (..\..\lib\stm32f0_std_lib\1.0\core_cm0.h)(0x571BE590)
+I (C:\Programs\Keil\ARM\ARMCC\include\stdint.h)(0x56A6FCAC)
+I (C:\Programs\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x56A6FCA4)
+I (C:\Programs\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x56A6FCA6)
+F (..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_rcc.c)(0x571BE590)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DSTM32F030-o .\stm32f0xx_rcc.o --omf_browse .\stm32f0xx_rcc.crf --depend .\stm32f0xx_rcc.d)
+F (.\Readme.txt)(0x58D7C4CB)()
