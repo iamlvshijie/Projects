@@ -9,6 +9,7 @@
 
 #include "hal_core.h"
 #include "hal_io.h"
+#include "hal_uart.h"
 
 /* console */
 #define USE_CONSOLE

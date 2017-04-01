@@ -54,7 +54,15 @@ u32_t hal_uart_init(uart_num uart_x, uart_io_t* uart_x_io, uart_cfg_t* uart_x_cf
 	}
 	else
 		;
-  /* USART configuration */
+	
+	/* USART configuration */
+	USART_InitStructure.USART_BaudRate = uart_x_cfg->baud_rate;
+	USART_InitStructure.USART_Parity = uart_x_cfg->parity;
+	USART_InitStructure.USART_StopBits = uart_x_cfg->stop_bits;
+	
+	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//Yá÷¿ØÖÆ
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+	
   USART_Init(stm32_usart[uart_x], &USART_InitStructure);
     
   /* Enable USART */
@@ -89,7 +97,7 @@ u32_t hal_uart_init(uart_num uart_x, uart_io_t* uart_x_io, uart_cfg_t* uart_x_cf
   * @param  str: The string to be printed
   * @retval None
   */
-u32_t HAL_UART_DeInit(uart_num uart_x)
+u32_t hal_uart_deinit(uart_num uart_x)
 {
   USART_DeInit(stm32_usart[uart_x]);
 }	

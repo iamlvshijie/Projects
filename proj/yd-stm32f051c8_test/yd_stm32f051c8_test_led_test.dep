@@ -1,8 +1,8 @@
 Dependencies for Project 'yd_stm32f051c8_test', Target 'led_test': (DO NOT MODIFY !)
 F (.\startup_stm32f0xx.s)(0x4F6BFDB8)(--cpu Cortex-M0 -g --apcs=interwork -I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx--list .\startup_stm32f0xx.lst --xref -o .\out\startup_stm32f0xx.o --depend .\out\startup_stm32f0xx.d)
-F (.\app.c)(0x58DD28A2)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\app.o --omf_browse .\out\app.crf --depend .\out\app.d)
+F (.\app.c)(0x58DFD3DF)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\app.o --omf_browse .\out\app.crf --depend .\out\app.d)
 I (app.h)(0x58D7C8A7)
-I (..\..\brd\yd_stm32f051c8\bsp.h)(0x58DD2A9F)
+I (..\..\brd\yd_stm32f051c8\bsp.h)(0x58DFCFDC)
 I (..\..\hal\stm32f0\hal_core.h)(0x58DD2985)
 I (..\..\lib\stm32f0_std_lib\1.0\stm32f0xx.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\core_cm0.h)(0x571BE590)
@@ -33,11 +33,11 @@ I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_usart.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_wwdg.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_misc.h)(0x571BE590)
 I (..\..\hal\stm32f0\hal_io.h)(0x58DD238C)
-I (..\..\driver\led.h)(0x58D92E3C)
-I (..\..\driver\tick.h)(0x58D92E5F)
-I (..\..\hal\stm32f0\hal_systick.h)(0x58D92ECE)
-I (..\..\driver\serial.h)(0x58DD26D1)
 I (..\..\hal\stm32f0\hal_uart.h)(0x58DD2985)
+I (..\..\driver\led.h)(0x58D92E3C)
+I (..\..\driver\tick.h)(0x58DD3142)
+I (..\..\hal\stm32f0\hal_systick.h)(0x58D92ECE)
+I (..\..\driver\serial.h)(0x58DD3140)
 F (..\..\driver\led.c)(0x58DD2AAC)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\led.o --omf_browse .\out\led.crf --depend .\out\led.d)
 I (..\..\driver\led.h)(0x58D92E3C)
 I (..\..\hal\stm32f0\hal_io.h)(0x58DD238C)
@@ -70,8 +70,8 @@ I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_tim.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_usart.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_wwdg.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_misc.h)(0x571BE590)
-F (..\..\driver\tick.c)(0x58D92D89)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\tick.o --omf_browse .\out\tick.crf --depend .\out\tick.d)
-I (..\..\driver\tick.h)(0x58D92E5F)
+F (..\..\driver\tick.c)(0x58DD3124)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\tick.o --omf_browse .\out\tick.crf --depend .\out\tick.d)
+I (..\..\driver\tick.h)(0x58DD3142)
 I (..\..\hal\stm32f0\hal_systick.h)(0x58D92ECE)
 I (..\..\hal\stm32f0\hal_core.h)(0x58DD2985)
 I (..\..\lib\stm32f0_std_lib\1.0\stm32f0xx.h)(0x571BE590)
@@ -102,9 +102,9 @@ I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_tim.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_usart.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_wwdg.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_misc.h)(0x571BE590)
-F (..\..\driver\serial.c)(0x58DD2813)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\serial.o --omf_browse .\out\serial.crf --depend .\out\serial.d)
+F (..\..\driver\serial.c)(0x58DD2DB2)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\serial.o --omf_browse .\out\serial.crf --depend .\out\serial.d)
 I (C:\Programs\Keil\ARM\ARMCC\include\stdio.h)(0x56A6FCAC)
-I (..\..\driver\serial.h)(0x58DD26D1)
+I (..\..\driver\serial.h)(0x58DD3140)
 I (..\..\hal\stm32f0\hal_uart.h)(0x58DD2985)
 I (..\..\hal\stm32f0\hal_core.h)(0x58DD2985)
 I (..\..\lib\stm32f0_std_lib\1.0\stm32f0xx.h)(0x571BE590)
@@ -136,8 +136,8 @@ I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_usart.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_wwdg.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_misc.h)(0x571BE590)
 I (..\..\hal\stm32f0\hal_io.h)(0x58DD238C)
-F (..\..\brd\yd_stm32f051c8\bsp.c)(0x58DD273C)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\bsp.o --omf_browse .\out\bsp.crf --depend .\out\bsp.d)
-I (..\..\brd\yd_stm32f051c8\bsp.h)(0x58DD2A9F)
+F (..\..\brd\yd_stm32f051c8\bsp.c)(0x58DFD3E6)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\bsp.o --omf_browse .\out\bsp.crf --depend .\out\bsp.d)
+I (..\..\brd\yd_stm32f051c8\bsp.h)(0x58DFCFDC)
 I (..\..\hal\stm32f0\hal_core.h)(0x58DD2985)
 I (..\..\lib\stm32f0_std_lib\1.0\stm32f0xx.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\core_cm0.h)(0x571BE590)
@@ -168,6 +168,7 @@ I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_usart.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_wwdg.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_misc.h)(0x571BE590)
 I (..\..\hal\stm32f0\hal_io.h)(0x58DD238C)
+I (..\..\hal\stm32f0\hal_uart.h)(0x58DD2985)
 F (..\..\hal\stm32f0\hal_io.c)(0x58DD20A6)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\hal_io.o --omf_browse .\out\hal_io.crf --depend .\out\hal_io.d)
 I (..\..\hal\stm32f0\hal_io.h)(0x58DD238C)
 I (..\..\hal\stm32f0\hal_core.h)(0x58DD2985)
@@ -260,7 +261,7 @@ I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_tim.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_usart.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_wwdg.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_misc.h)(0x571BE590)
-F (..\..\hal\stm32f0\hal_uart.c)(0x58DD2903)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\hal_uart.o --omf_browse .\out\hal_uart.crf --depend .\out\hal_uart.d)
+F (..\..\hal\stm32f0\hal_uart.c)(0x58DFD4C6)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\..\driver -I..\..\hal\stm32f0 -I..\..\lib\stm32f0_std_lib\1.0 -I..\..\lib\stm32f0_std_lib\1.0\inc -I..\yd-stm32f051c8_test -I..\..\brd\yd_stm32f051c8 -I..\..\lib\stm32f0_std_lib\1.0\cmsis-I C:\Programs\Keil\ARM\RV31\INC-I C:\Programs\Keil\ARM\CMSIS\Include-I C:\Programs\Keil\ARM\Inc\ST\STM32F0xx-DUSE_STDPERIPH_DRIVER -DSTM32F0XX -DSTM32F051-o .\out\hal_uart.o --omf_browse .\out\hal_uart.crf --depend .\out\hal_uart.d)
 I (..\..\hal\stm32f0\hal_uart.h)(0x58DD2985)
 I (..\..\hal\stm32f0\hal_core.h)(0x58DD2985)
 I (..\..\lib\stm32f0_std_lib\1.0\stm32f0xx.h)(0x571BE590)
@@ -558,4 +559,4 @@ I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_tim.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_usart.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_wwdg.h)(0x571BE590)
 I (..\..\lib\stm32f0_std_lib\1.0\inc\stm32f0xx_misc.h)(0x571BE590)
-F (.\Readme.txt)(0x58DBD2D6)()
+F (.\Readme.txt)(0x58DD2DD5)()

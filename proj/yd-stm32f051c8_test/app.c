@@ -24,6 +24,8 @@
 /* Private macro -------------------------------------------------------------*/
 
 /* Private variables ---------------------------------------------------------*/
+extern uart_io_t console_uart_io;
+extern uart_cfg_t console_uart_cfg;
 
 /* Private functions ---------------------------------------------------------*/
 
@@ -35,9 +37,19 @@
   */
 int main(void)
 {
+	serial_cfg_t serial_cfg;
+
 	
 	led_init(led0);
 	tick_start(1000000);
+	
+	serial_cfg.uart = uart0;
+	serial_cfg.uart_io = &console_uart_io;
+	serial_cfg.uart_cfg = &console_uart_cfg;
+
+	console_init(&serial_cfg);
+	
+	printf(">>system initiated\r\n");
 	
 	while(1)
 	{
