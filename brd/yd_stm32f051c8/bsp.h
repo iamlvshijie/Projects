@@ -12,9 +12,11 @@
 
 /* console */
 #define USE_CONSOLE
-#define CONSOLE "uart0"
+
 
 /* led */
 #define LED_NUM 1
 #define LED_ON_POLARITY 0
+
+
 /*********************************** END OF FILE *******************************/

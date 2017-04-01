@@ -13,6 +13,10 @@
 #if LED_NUM >0
 io_t led_ios[LED_NUM] ={{GPIOC,GPIO_Pin_13,RCC_AHBPeriph_GPIOC} };
 io_cfg_t led_io_cfg = {GPIO_Mode_OUT,GPIO_Speed_Level_1,GPIO_OType_PP,GPIO_PuPd_NOPULL};
-
 #endif
+
+/* uart*/
+
+
+
 /*********************************** END OF FILE *******************************/

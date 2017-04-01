@@ -1,7 +1,7 @@
 /*  
 	@file:			hal_core.c
 	@author:		Jacob Lui
-	@description: hal core for yd_stm32f0
+	@description: hal core for stm32f0
 	@revision:	1.0
 	@history:		2017.3.26
 	@copyright: Jacob
@@ -29,6 +29,47 @@ void assert_failed(uint8_t* file, uint32_t line)
   }
 }
 #endif
+
+/**
+  * @brief  This function handles NMI exception.
+  * @param  None
+  * @retval None
+  */
+void NMI_Handler(void)
+{
+	
+}
+
+/**
+  * @brief  This function handles Hard Fault exception.
+  * @param  None
+  * @retval None
+  */
+void HardFault_Handler(void)
+{
+  /* Go to infinite loop when Hard Fault exception occurs */
+  while (1)
+  {
+  }
+}
+
+/**
+  * @brief  This function handles SVCall exception.
+  * @param  None
+  * @retval None
+  */
+void SVC_Handler(void)
+{
+}
+
+/**
+  * @brief  This function handles PendSVC exception.
+  * @param  None
+  * @retval None
+  */
+void PendSV_Handler(void)
+{
+}
 
 
 void int_all_disable(void)

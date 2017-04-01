@@ -9,6 +9,9 @@
   #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 	#define GETCHAR_PROTOTYPE int fgetc(FILE *f)
 #endif /* __GNUC__ */
+
+
+uart_num console_uart;
 	
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -18,7 +21,7 @@
   */
 PUTCHAR_PROTOTYPE
 {      
-	HAL_UART_Send_Byte(DEBUG_COM, (uint8_t)ch);    
+	hal_uart_send_byte(console_uart, (uint8_t)ch);    
 	return ch;
 }
 /**
@@ -29,20 +32,28 @@ PUTCHAR_PROTOTYPE
   */
 GETCHAR_PROTOTYPE
 { 
-	uint8_t ch;
-	/*HAL_UART_Receive_Byte(DEBUG_COM,&ch, 0);
-	return ch;*/
+	u8_t ch;
 	
-	while(USART_GetFlagStatus(USART1,USART_FLAG_RXNE) == RESET)
-	{
-	}
-	ch = USART_ReceiveData(USART1);
-	HAL_UART_Send_Byte(DEBUG_COM, (uint8_t)ch);  
+	hal_uart_receive_byte(console_uart, &ch, 0);
+	return ch;
+	
+//	while(USART_GetFlagStatus(USART1,USART_FLAG_RXNE) == RESET)
+//	{
+//	}
+//	ch = USART_ReceiveData(USART1);
+	
+	//echo for console 
+	hal_uart_send_byte(console_uart, (uint8_t)ch);  
 	return ch;
 }
 
-void serial_init(serial_cfg_t cfg)
+void console_init(serial_cfg_t* serial_cfg)
 {
+	console_uart = serial_cfg->uart;
+	hal_uart_init(console_uart, serial_cfg->uart_io, serial_cfg->uart_cfg);
+}
 
-
+void serial_init(serial_cfg_t* serial_cfg)
+{
+	hal_uart_init(console_uart, serial_cfg->uart_io, serial_cfg->uart_cfg);
 }

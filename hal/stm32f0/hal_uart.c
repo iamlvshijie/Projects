@@ -1,78 +1,64 @@
+
+/* Includes ------------------------------------------------------------------*/
 #include "hal_uart.h"
-#include "bsp.h"
+
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+USART_TypeDef* stm32_usart[] = {USART1,USART2};
 
-USART_TypeDef* COM_USART[COMn] = {COM1_USART, COM2_USART}; 
-
-GPIO_TypeDef* COM_TX_PORT[COMn] = {COM1_TX_GPIO_PORT, COM2_TX_GPIO_PORT};
- 
-GPIO_TypeDef* COM_RX_PORT[COMn] = {COM1_RX_GPIO_PORT, COM2_RX_GPIO_PORT};
-
-const uint32_t COM_USART_CLK[COMn] = {COM1_CLK, COM2_CLK};
-
-const uint32_t COM_TX_PORT_CLK[COMn] = {COM1_TX_GPIO_CLK, COM2_TX_GPIO_CLK};
- 
-const uint32_t COM_RX_PORT_CLK[COMn] = {COM1_RX_GPIO_CLK, COM2_RX_GPIO_CLK};
-
-const uint16_t COM_TX_PIN[COMn] = {COM1_TX_PIN, COM2_TX_PIN};
-
-const uint16_t COM_RX_PIN[COMn] = {COM1_RX_PIN, COM2_RX_PIN};
- 
-const uint16_t COM_TX_PIN_SOURCE[COMn] = {COM1_TX_SOURCE, COM2_TX_SOURCE};
-
-const uint16_t COM_RX_PIN_SOURCE[COMn] = {COM1_RX_SOURCE, COM2_RX_SOURCE};
- 
-const uint16_t COM_TX_AF[COMn] = {COM1_TX_AF, COM2_TX_AF};
- 
-const uint16_t COM_RX_AF[COMn] = {COM1_RX_AF, COM2_RX_AF};
-
-
-uint32_t HAL_UART_Init(COM_TypeDef COM, USART_InitTypeDef* USART_InitStructure)
+/**
+  * @brief  send bytes into the uart_x
+  * @param  str: The string to be printed
+  * @retval None
+  */
+u32_t hal_uart_init(uart_num uart_x, uart_io_t* uart_x_io, uart_cfg_t* uart_x_cfg)
 {
-	
-	
-	//USART_InitTypeDef USART_InitStructure;
+	USART_InitTypeDef USART_InitStructure;
   NVIC_InitTypeDef NVIC_InitStructure;	
 	GPIO_InitTypeDef GPIO_InitStructure;
-	
-  /* Enable GPIO clock */
-  RCC_AHBPeriphClockCmd(COM_TX_PORT_CLK[COM] | COM_RX_PORT_CLK[COM], ENABLE);
 
-  /* Enable USART clock */
-	//if(IS_RCC_APB2_PERIPH(COM_USART_CLK[COM]))
-	if(COM == COM2)
-		RCC_APB2PeriphClockCmd(COM_USART_CLK[COM], ENABLE); 
-	else //if(IS_RCC_APB1_PERIPH(COM_USART_CLK[COM]))
-		RCC_APB1PeriphClockCmd(COM_USART_CLK[COM], ENABLE);
-	
+  /* Enable GPIO clock */
+  RCC_AHBPeriphClockCmd(uart_x_io->rx_io->periph | uart_x_io->tx_io->periph, ENABLE);
+
+
   /* Connect PXx to USARTx_Tx */
-  GPIO_PinAFConfig(COM_TX_PORT[COM], COM_TX_PIN_SOURCE[COM], COM_TX_AF[COM]);
+  GPIO_PinAFConfig(uart_x_io->tx_io->port, uart_x_io->tx_io->pin_source, uart_x_io->tx_io->pin_af);
 
   /* Connect PXx to USARTx_Rx */
-  GPIO_PinAFConfig(COM_RX_PORT[COM], COM_RX_PIN_SOURCE[COM], COM_RX_AF[COM]);
+  GPIO_PinAFConfig(uart_x_io->rx_io->port, uart_x_io->rx_io->pin_source, uart_x_io->rx_io->pin_af);
   
   /* Configure USART Tx as alternate function push-pull */
-  GPIO_InitStructure.GPIO_Pin = COM_TX_PIN[COM];
+  GPIO_InitStructure.GPIO_Pin = uart_x_io->tx_io->pin;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	
-  GPIO_Init(COM_TX_PORT[COM], &GPIO_InitStructure);
+  GPIO_Init(uart_x_io->tx_io->port, &GPIO_InitStructure);
     
   /* Configure USART Rx as alternate function push-pull */
-  GPIO_InitStructure.GPIO_Pin = COM_RX_PIN[COM];
-  GPIO_Init(COM_RX_PORT[COM], &GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin = uart_x_io->rx_io->pin;
+  GPIO_Init(uart_x_io->rx_io->port, &GPIO_InitStructure);
 
+  /* Enable USART clock */
+	if(uart_x == uart1)
+	{
+		RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); 		
+	}
+	else if(uart_x == uart2)
+	{
+		RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+	}
+	else
+		;
   /* USART configuration */
-  USART_Init(COM_USART[COM], USART_InitStructure);
+  USART_Init(stm32_usart[uart_x], &USART_InitStructure);
     
   /* Enable USART */
-  USART_Cmd(COM_USART[COM], ENABLE);
+  USART_Cmd(stm32_usart[uart_x], ENABLE);
 	
 
 	
@@ -90,47 +76,63 @@ uint32_t HAL_UART_Init(COM_TypeDef COM, USART_InitTypeDef* USART_InitStructure)
 //	{;}
 //	
 //	/* USART configuration */
-//  USART_DeInit(COM_USART[COM]);
+//  USART_DeInit(stm32_usart[uart_x]);
 //    
 //  /* Enable USART */
-//  USART_Cmd(COM_USART[COM], DISABLE);
+//  USART_Cmd(stm32_usart[uart_x], DISABLE);
 	
 	return SUCCESS;
 }
 
-uint32_t HAL_UART_DeInit(COM_TypeDef COM)
+/**
+  * @brief  send bytes into the uart_x
+  * @param  str: The string to be printed
+  * @retval None
+  */
+u32_t HAL_UART_DeInit(uart_num uart_x)
 {
-  //return BSP_UART_DeInit(COM);
+  USART_DeInit(stm32_usart[uart_x]);
 }	
 
-uint32_t HAL_UART_Send_Byte(COM_TypeDef COM, uint8_t ch)
+/**
+  * @brief  send byte into the uart_x
+  * @param  str: The string to be printed
+  * @retval None
+  */
+u32_t hal_uart_send_byte(uart_num uart_x, u8_t ch)
 {
-  USART_SendData(COM_USART[COM], ch);
+  USART_SendData(stm32_usart[uart_x], ch);
   
-  while (USART_GetFlagStatus(COM_USART[COM], USART_FLAG_TXE) == RESET)
+  while (USART_GetFlagStatus(stm32_usart[uart_x], USART_FLAG_TXE) == RESET)
   {}
 		
 	return 0;
 }
-uint32_t HAL_UART_Receive_Byte(COM_TypeDef COM,uint8_t*ch, uint32_t*timeout)
+
+/**
+  * @brief  receive byte from the uart_x
+  * @param  str: The string to be printed
+  * @retval None
+  */
+u32_t hal_uart_receive_byte(uart_num uart_x, u8_t*ch, u32_t timeout)
 {
 	if(timeout==0)
 	{
-	  while(USART_GetFlagStatus(COM_USART[COM], USART_FLAG_RXNE) == RESET)
+	  while(USART_GetFlagStatus(stm32_usart[uart_x], USART_FLAG_RXNE) == RESET)
 		{
 		
 		}
-		*ch = USART_ReceiveData(COM_USART[COM]);
+		*ch = USART_ReceiveData(stm32_usart[uart_x]);
 		return 0;
 	}
 	else
 	{
 		
-		while(*timeout>0)
+		while(timeout>0)
 		{
-			if(USART_GetFlagStatus(COM_USART[COM], USART_FLAG_RXNE) != RESET)
+			if(USART_GetFlagStatus(stm32_usart[uart_x], USART_FLAG_RXNE) != RESET)
 			{
-				*ch = USART_ReceiveData(COM_USART[COM]);
+				*ch = USART_ReceiveData(stm32_usart[uart_x]);
 				return 0;
 			}
 		}
@@ -139,37 +141,41 @@ uint32_t HAL_UART_Receive_Byte(COM_TypeDef COM,uint8_t*ch, uint32_t*timeout)
 	return -1;
 }
 
-
-uint32_t HAL_UART_Send_Buffer(COM_TypeDef COM, uint8_t * pkt, int16_t len)
-{
-	uint8_t* ptr=pkt;
-	while(len--)
-		HAL_UART_Send_Byte(COM, *(ptr++));
-	
-	return 0;
-
-}
 /**
-  * @brief  Print a string on the HyperTerminal
-  * @param  s: The string to be printed
+  * @brief  send bytes into the uart_x
+  * @param  str: The string to be printed
   * @retval None
   */
-uint32_t HAL_UART_Send_String(COM_TypeDef COM, uint8_t *s)
+u32_t hal_uart_send_bytes(uart_num uart_x, u8_t * bytes, u16_t len)
 {
-  while (*s != '\0')
-  {
-    HAL_UART_Send_Byte(COM, *s);
-    s++;
-  }
+	u8_t* ptr= bytes;
+	while(len--)
+		hal_uart_send_byte(uart_x, *(ptr++));
 	return 0;
 
 }
 
-
-uint32_t HAL_UART_Receive_Buffer(COM_TypeDef COM, uint8_t * pkt, int16_t len, uint32_t* timeout)
+/**
+  * @brief  send a string into the uart_x
+  * @param  str: The string to be printed
+  * @retval None
+  */
+u32_t hal_uart_send_string(uart_num uart_x, u8_t *str)
 {
-
+  while (*str != '\0')
+  {
+    hal_uart_send_byte(uart_x, *str);
+    str++;
+  }
 	return 0;
+}
 
-
+/**
+  * @brief  receive bytes from the uart_x
+  * @param  
+  * @retval None
+  */
+u32_t hal_uart_receive_bytes(uart_num uart_x, u8_t * bytes, u16_t len, u32_t* timeout)
+{
+	return 0;
 }

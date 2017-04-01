@@ -7,11 +7,9 @@
 	@copyright: Jacob
 */
 #include "led.h"
-#include "bsp.h"
 
-#if LED_NUM >0
-	extern io_t led_ios[];
-	extern io_cfg_t led_io_cfg;
+extern io_t led_ios[];
+extern io_cfg_t led_io_cfg;
 	
 /**
   * @brief  led_init
@@ -87,8 +85,6 @@ void led_blink_deinit(led_t led)
 
 }
 
-#else
-	#warning please include led on bsp.c file
-#endif
+
 /*********************************** END OF FILE *******************************/
 

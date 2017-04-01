@@ -1,7 +1,9 @@
 
 #include "hal_spi.h"
 
-void hal_spi_init(spi_t spi_x, spi_cfg_t spi_cfg)
+SPI_TypeDef* stm32_spi[]={SPI1,SPI2};
+
+void hal_spi_init(spi_num spi_x, spi_cfg_t spi_cfg)
 {
 	SPI_InitTypeDef SPI_InitStruct;
 
@@ -33,9 +35,9 @@ void hal_spi_init(spi_t spi_x, spi_cfg_t spi_cfg)
 //  GPIO_Init(SPIx_MISO_GPIO_PORT, &GPIO_InitStruct);
 //  
 //  /* SPI configuration -------------------------------------------------------*/
-//  SPI_I2S_DeInit(SPIx);
+//  SPI_I2S_DeInit(stm32_spi[spi_x]);
 
-		SPI_InitStruct = spi_cfg;
+//		SPI_InitStruct = spi_cfg;
 //	SPI_InitStruct.SPI_Direction = SPI_Direction;// SPI_Direction_2Lines_FullDuplex;
 //  SPI_InitStruct.SPI_DataSize = SPI_DATASIZE;
 //  SPI_InitStruct.SPI_CPOL = SPI_CPOL_Low;
@@ -53,22 +55,22 @@ void hal_spi_init(spi_t spi_x, spi_cfg_t spi_cfg)
 ////	
 //	/* Initializes the SPI communication */
 //  SPI_InitStruct.SPI_Mode = SPI_Mode_Master;
-//	SPI_Init(SPIx, &SPI_InitStruct);
+	SPI_Init(stm32_spi[spi_x], &SPI_InitStruct);
 //  
 //  /* Initialize the FIFO threshold */
-//  SPI_RxFIFOThresholdConfig(SPIx, SPI_RxFIFOThreshold_QF);
+//  SPI_RxFIFOThresholdConfig(stm32_spi[spi_x], SPI_RxFIFOThreshold_QF);
 //  
 ////  /* Enable the Rx buffer not empty interrupt */
-////  SPI_I2S_ITConfig(SPIx, SPI_I2S_IT_RXNE, ENABLE);
+////  SPI_I2S_ITConfig(stm32_spi[spi_x], SPI_I2S_IT_RXNE, ENABLE);
 ////  /* Enable the SPI Error interrupt */
-////  SPI_I2S_ITConfig(SPIx, SPI_I2S_IT_ERR, ENABLE);
+////  SPI_I2S_ITConfig(stm32_spi[spi_x], SPI_I2S_IT_ERR, ENABLE);
 ////  /* Data transfer is performed in the SPI interrupt routine */
 //  
 //  /* Enable the SPI peripheral */
-//  SPI_Cmd(SPIx, ENABLE);
+//  SPI_Cmd(stm32_spi[spi_x], ENABLE);
 //	
 
-//	if(SPIx==SPI1)
+//	if(stm32_spi[spi_x]==SPI1)
 //	{
 //		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO,ENABLE);
 //		RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1,ENABLE);
@@ -79,7 +81,7 @@ void hal_spi_init(spi_t spi_x, spi_cfg_t spi_cfg)
 //								 
 //		GPIO_Init(GPIOA, &GPIO_InitStruct);
 //	}
-//	else if(SPIx==SPI2)
+//	else if(stm32_spi[spi_x]==SPI2)
 //	{
 //		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_AFIO,ENABLE);
 //		RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2,ENABLE);
@@ -100,29 +102,33 @@ void hal_spi_init(spi_t spi_x, spi_cfg_t spi_cfg)
 //	SPI_InitStruct.SPI_NSS = SPI_NSS_Soft;
 //	SPI_InitStruct.SPI_FirstBit = SPI_FirstBit_MSB;
 //	SPI_InitStruct.SPI_CRCPolynomial = 7;
-//	SPI_Init(SPIx, &SPI_InitStruct);
-//	SPI_Cmd(SPIx, ENABLE);
-	
+//	SPI_Init(stm32_spi[spi_x], &SPI_InitStruct);
+//	SPI_Cmd(stm32_spi[spi_x], ENABLE);
+}
+
+void hal_spi_deinit(spi_num spi_x)
+{
+
 
 }
 
 
-void hal_spi_send_byte(SPI_TypeDef* SPIx,uint8_t data)
+void hal_spi_send_byte(spi_num spi_x,uint8_t data)
 {
-	while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_TXE)==RESET);
-	SPI_SendData8(SPIx,data);
+	while(SPI_I2S_GetFlagStatus(stm32_spi[spi_x], SPI_I2S_FLAG_TXE)==RESET);
+	SPI_SendData8(stm32_spi[spi_x],data);
 
-	while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_RXNE)==RESET);
-	SPI_ReceiveData8(SPIx);
+	while(SPI_I2S_GetFlagStatus(stm32_spi[spi_x], SPI_I2S_FLAG_RXNE)==RESET);
+	SPI_ReceiveData8(stm32_spi[spi_x]);
 }
 
-uint8_t hal_spi_receive_byte(SPI_TypeDef* SPIx,uint8_t data)
+uint8_t hal_spi_receive_byte(spi_num spi_x, uint8_t data)
 {
-	while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_TXE)==RESET);
-	SPI_SendData8(SPIx,data);
+	while(SPI_I2S_GetFlagStatus(stm32_spi[spi_x], SPI_I2S_FLAG_TXE)==RESET);
+	SPI_SendData8(stm32_spi[spi_x],data);
 
-	while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_RXNE)==RESET);
-	return SPI_ReceiveData8(SPIx);
+	while(SPI_I2S_GetFlagStatus(stm32_spi[spi_x], SPI_I2S_FLAG_RXNE)==RESET);
+	return SPI_ReceiveData8(stm32_spi[spi_x]);
 }
 
 static void HAL_SPI_DelayUS(uint8_t t)
@@ -134,12 +140,12 @@ static void HAL_SPI_DelayUS(uint8_t t)
 
 uint8_t hal_spi_chip_select(port_t port, pin_t pin)
 {
-	hal_io_reset(port, pin);
+//	hal_io_reset(port, pin);
 }
 
 uint8_t hal_spi_chip_unselect(port_t port, pin_t pin)
 {
-		hal_io_set(port, pin);
+		//hal_io_set(port, pin);
 }
 
 uint8_t hal_spi_write_reg(uint8_t reg,uint8_t value)
@@ -201,16 +207,16 @@ void sp1_irq_handler(void)
 //		id =0;
 ////    if (CmdStatus == 0x00)
 ////    {
-////      SPI_SendData8(SPIx, CmdTransmitted);
+////      SPI_SendData8(stm32_spi[spi_x], CmdTransmitted);
 ////      CmdStatus = 0x01;
 ////    }
 ////    else
 ////    {
-////      SPI_SendData8(SPIx, TxBuffer[Tx_Idx++]);
+////      SPI_SendData8(stm32_spi[spi_x], TxBuffer[Tx_Idx++]);
 ////      if (Tx_Idx == GetVar_NbrOfData())
 ////      {
 ////        /* Disable the Tx buffer empty interrupt */
-////        SPI_I2S_ITConfig(SPIx, SPI_I2S_IT_TXE, DISABLE);
+////        SPI_I2S_ITConfig(stm32_spi[spi_x], SPI_I2S_IT_TXE, DISABLE);
 ////      }
 ////    }
 //  }
@@ -221,12 +227,12 @@ void sp1_irq_handler(void)
 //		id = 1;
 ////    if (CmdReceived == 0x00)
 ////    {
-////      CmdReceived = SPI_ReceiveData8(SPIx);
+////      CmdReceived = SPI_ReceiveData8(stm32_spi[spi_x]);
 ////      Rx_Idx = 0x00;
 ////    }
 ////    else
 ////    {
-////      RxBuffer[Rx_Idx++] = SPI_ReceiveData8(SPIx);
+////      RxBuffer[Rx_Idx++] = SPI_ReceiveData8(stm32_spi[spi_x]);
 ////    }
 //  }
 //  
@@ -234,8 +240,8 @@ void sp1_irq_handler(void)
 //  if (SPI_I2S_GetITStatus(SPI1, SPI_I2S_IT_OVR) == SET)
 //  {
 //		id = 2;
-////    SPI_ReceiveData8(SPIx);
-////    SPI_I2S_GetITStatus(SPIx, SPI_I2S_IT_OVR);
+////    SPI_ReceiveData8(stm32_spi[spi_x]);
+////    SPI_I2S_GetITStatus(stm32_spi[spi_x], SPI_I2S_IT_OVR);
 //  }
 //  
 //#endif /* SPI_MASTER*/

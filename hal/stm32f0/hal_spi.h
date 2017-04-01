@@ -4,14 +4,39 @@
 #include "hal_core.h"
 #include "hal_io.h"
 
+
+typedef enum
+{
+	spi0 = 0,
+	spi1 = 1,
+	spi2 = 2
+} spi_num;
+
+typedef struct
+{
+	io_t* tx_io;
+	io_cfg_t* tx_io_cfg;
+	io_t* rx_io;
+	io_cfg_t* rx_io_cfg;
+}spi_io_t;
+
+typedef struct
+{
+	u32_t baud_rate;
+	u8_t length;
+	u8_t stop_bits;
+	u8_t parity;
+	u8_t int_mode;
+}spi_cfg_t;	 
+
 typedef SPI_TypeDef* spi_t;
-typedef SPI_InitTypeDef spi_cfg_t;
+//typedef SPI_InitTypeDef spi_cfg_t;
 
-void 		hal_spi_init(spi_t spi_x, spi_cfg_t spi_cfg);
+void 		hal_spi_init(spi_num spi_x, spi_cfg_t spi_cfg);
+void    hal_spi_deinit(spi_num spi_x);
+void 		hal_spi_send_byte(spi_num spi_x,uint8_t data);
 
-void 		hal_spi_send_byte(SPI_TypeDef* SPIx,uint8_t data);
-
-uint8_t hal_spi_receive_byte(SPI_TypeDef* SPIx,uint8_t data);
+uint8_t hal_spi_receive_byte(spi_num spi_x, uint8_t data);
 
 uint8_t hal_spi_chip_select(port_t port, pin_t pin);
 

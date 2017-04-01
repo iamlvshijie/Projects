@@ -12,14 +12,20 @@
 #include "hal_core.h"
 
 typedef u16_t pin_t;
-typedef u32_t periph_t;
 typedef GPIO_TypeDef port_t;
+
+typedef u32_t stm32_periph_t;
+typedef u8_t  stm32_pin_source_t;
+typedef u8_t  stm32_pin_af_t;
 
 typedef struct
 {
 	port_t* port;
 	pin_t pin;
-	periph_t periph;
+	
+	stm32_periph_t periph;
+	stm32_pin_source_t pin_source;
+	stm32_pin_af_t pin_af;
 }io_t;
 
 typedef struct 

@@ -14,6 +14,7 @@
 
 #include "led.h"
 #include "tick.h"
+#include "serial.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/																																
@@ -34,6 +35,7 @@
   */
 int main(void)
 {
+	
 	led_init(led0);
 	tick_start(1000000);
 	

@@ -1,16 +1,16 @@
 #ifndef __SERIAL_H
 #define __SERIAL_H
+
 #include "hal_uart.h"
 
-typedef struct{
-	uint8_t *Name;
-	uint32_t BaudRate;
-	uint8_t  WordLength;
-	uint8_t  StopBits; 
-	uint8_t  Parity;   
-	uint8_t  TransMode;      
-	uint8_t  IntType;
-}serial_cfg_t; 
 
+
+typedef struct{
+	uart_num uart;
+	uart_io_t *uart_io;
+  uart_cfg_t *uart_cfg;
+}serial_cfg_t;
+
+void console_init(serial_cfg_t * cfg);
 
 #endif
