@@ -17,44 +17,45 @@ USART_TypeDef* stm32_usart[] = {USART1,USART2};
 u32_t hal_uart_init(uart_num uart_x, uart_io_t* uart_x_io, uart_cfg_t* uart_x_cfg)
 {
 	USART_InitTypeDef USART_InitStructure;
-  NVIC_InitTypeDef NVIC_InitStructure;	
+  //NVIC_InitTypeDef NVIC_InitStructure;	
 	GPIO_InitTypeDef GPIO_InitStructure;
 
   /* Enable GPIO clock */
-  RCC_AHBPeriphClockCmd(uart_x_io->rx_io->periph | uart_x_io->tx_io->periph, ENABLE);
-
+  //RCC_AHBPeriphClockCmd(uart_x_io->rx_io->periph | uart_x_io->tx_io->periph, ENABLE);
 
   /* Connect PXx to USARTx_Tx */
-  GPIO_PinAFConfig(uart_x_io->tx_io->port, uart_x_io->tx_io->pin_source, uart_x_io->tx_io->pin_af);
-
+  //GPIO_PinAFConfig(uart_x_io->tx_io->port, uart_x_io->tx_io->pin_source, uart_x_io->tx_io->pin_af);
+	//GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_1);
+	
   /* Connect PXx to USARTx_Rx */
-  GPIO_PinAFConfig(uart_x_io->rx_io->port, uart_x_io->rx_io->pin_source, uart_x_io->rx_io->pin_af);
-  
-  /* Configure USART Tx as alternate function push-pull */
-  GPIO_InitStructure.GPIO_Pin = uart_x_io->tx_io->pin;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+  //GPIO_PinAFConfig(uart_x_io->rx_io->port, uart_x_io->rx_io->pin_source, uart_x_io->rx_io->pin_af);
+  //GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_1);
 	
-  GPIO_Init(uart_x_io->tx_io->port, &GPIO_InitStructure);
-    
-  /* Configure USART Rx as alternate function push-pull */
-  GPIO_InitStructure.GPIO_Pin = uart_x_io->rx_io->pin;
-  GPIO_Init(uart_x_io->rx_io->port, &GPIO_InitStructure);
+//  /* Configure USART Tx as alternate function push-pull */
+//  GPIO_InitStructure.GPIO_Pin = uart_x_io->tx_io->pin;
+//  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+//  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+//  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+//  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+//	
+//  GPIO_Init(uart_x_io->tx_io->port, &GPIO_InitStructure);
+//    
+//  /* Configure USART Rx as alternate function push-pull */
+//  GPIO_InitStructure.GPIO_Pin = uart_x_io->rx_io->pin;
+//  GPIO_Init(uart_x_io->rx_io->port, &GPIO_InitStructure);
 
-  /* Enable USART clock */
-	if(uart_x == uart1)
-	{
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); 		
-	}
-	else if(uart_x == uart2)
-	{
-		RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
-	}
-	else
-		;
-	
+//  /* Enable USART clock */
+//	if(uart_x == uart1)
+//	{
+//		RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); 		
+//	}
+//	else if(uart_x == uart2)
+//	{
+//		RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+//	}
+//	else
+//		;
+//	
 	/* USART configuration */
 	USART_InitStructure.USART_BaudRate = uart_x_cfg->baud_rate;
 	USART_InitStructure.USART_Parity = uart_x_cfg->parity;
@@ -63,10 +64,11 @@ u32_t hal_uart_init(uart_num uart_x, uart_io_t* uart_x_io, uart_cfg_t* uart_x_cf
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//Yá÷¿ØÖÆ
   USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
 	
-  USART_Init(stm32_usart[uart_x], &USART_InitStructure);
+ // USART_Init(stm32_usart[uart_x], &USART_InitStructure);
+	USART_Init(USART1, &USART_InitStructure);		
     
   /* Enable USART */
-  USART_Cmd(stm32_usart[uart_x], ENABLE);
+  //USART_Cmd(stm32_usart[uart_x], ENABLE);
 	
 
 	
@@ -78,8 +80,8 @@ u32_t hal_uart_init(uart_num uart_x, uart_io_t* uart_x_io, uart_cfg_t* uart_x_cf
 //  
 ////	NVIC_InitStructure.NVIC_IRQChannel = COM2_IRQn;
 ////  NVIC_Init(&NVIC_InitStructure);
-//	
-//	
+	
+	
 //	while(USART_GetFlagStatus(USART1, USART_FLAG_TC)==RESET)
 //	{;}
 //	

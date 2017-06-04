@@ -1,9 +1,8 @@
 #ifndef __SERIAL_H
 #define __SERIAL_H
 
+#include <stdio.h>
 #include "hal_uart.h"
-
-
 
 typedef struct{
 	uart_num uart;
@@ -12,5 +11,6 @@ typedef struct{
 }serial_cfg_t;
 
 void console_init(serial_cfg_t * cfg);
+void serial_init(serial_cfg_t* serial_cfg);
 
 #endif

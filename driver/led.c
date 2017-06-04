@@ -9,16 +9,15 @@
 #include "led.h"
 
 extern io_t led_ios[];
-extern io_cfg_t led_io_cfg;
 	
 /**
   * @brief  led_init
   * @param  None
   * @retval None
   */
-void led_init(led_t led)
+void led_init(led_t led, io_cfg_t * p_io_cfg)
 {
-	hal_io_init(&led_ios[led], &led_io_cfg);
+	hal_io_init(&led_ios[led], p_io_cfg);
 }
 
 /**
@@ -54,15 +53,10 @@ void led_ctl_off(led_t led)
   * @param  None
   * @retval None
   */
-void led_toggle(led_t led)
+void led_ctl_toggle(led_t led)
 {
 	hal_io_toggle(led_ios[led].port, led_ios[led].pin);
 }
-
-
-
-
-
 
 /**
   * @brief  led_blink_init

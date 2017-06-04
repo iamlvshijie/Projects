@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "serial.h"
 
 #ifdef __GNUC__
@@ -35,7 +34,7 @@ GETCHAR_PROTOTYPE
 	u8_t ch;
 	
 	hal_uart_receive_byte(console_uart, &ch, 0);
-	return ch;
+	//return ch;
 	
 //	while(USART_GetFlagStatus(USART1,USART_FLAG_RXNE) == RESET)
 //	{
@@ -50,7 +49,7 @@ GETCHAR_PROTOTYPE
 void console_init(serial_cfg_t* serial_cfg)
 {
 	console_uart = serial_cfg->uart;
-	hal_uart_init(console_uart, serial_cfg->uart_io, serial_cfg->uart_cfg);
+	//hal_uart_init(console_uart, serial_cfg->uart_io, serial_cfg->uart_cfg);
 }
 
 void serial_init(serial_cfg_t* serial_cfg)

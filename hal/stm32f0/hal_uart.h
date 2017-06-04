@@ -15,9 +15,9 @@
 
 typedef enum
 {
-	uart0 = 0,
-	uart1 = 1,
-	uart2 = 2
+	uart0,
+	uart1,
+	uart2
 } uart_num;
 
 typedef struct
@@ -38,9 +38,8 @@ typedef struct
 }uart_cfg_t;	 
 	 
 /* Exported constants --------------------------------------------------------*/
-u32_t hal_uart_deinit(uart_num uart_x);	 
-u32_t hal_uart_init(uart_num uart_x,uart_io_t* uart_x_io, uart_cfg_t* uart_cfg); 
-
+u32_t hal_uart_init(uart_num uart_x, uart_io_t* uart_x_io, uart_cfg_t* uart_cfg); 
+u32_t hal_uart_deinit(uart_num uart_x);
 u32_t hal_uart_send_byte(uart_num uart_x, u8_t ch);
 u32_t hal_uart_receive_byte(uart_num uart_x, u8_t* ch, u32_t timeout);
 

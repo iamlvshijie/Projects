@@ -19,6 +19,14 @@
 typedef uint32_t u32_t;
 typedef uint16_t u16_t;
 typedef uint8_t u8_t;
+
+
+typedef enum
+{
+	hal_ok = 0x00,
+	hal_error = 0x01
+}hal_status;
+
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */

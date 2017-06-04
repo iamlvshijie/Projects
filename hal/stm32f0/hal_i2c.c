@@ -2,13 +2,13 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "hal_i2c.h"
-#include "bsp.h"
+
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint32_t I2C_Timeout;
+u32_t I2C_Timeout;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
@@ -20,10 +20,85 @@ uint32_t I2C_Timeout;
   * @param  
   * @retval 
   */
-void HAL_I2C_Init(void)
+void hal_i2c_init(i2c_cfg_t cfg)
 {
-	BSP_I2C_Config();
+	
 }
+
+
+
+
+#ifdef I2C_IO_SIMULATION
+/*
+void IIC_Start()
+{
+	SCLK_Set() ;
+	SDIN_Set();
+	SDIN_Clr();
+	SCLK_Clr();
+}
+
+//IIC Stop
+
+void IIC_Stop()
+{
+OLED_SCLK_Set() ;
+//	OLED_SCLK_Clr();
+	OLED_SDIN_Clr();
+	OLED_SDIN_Set();
+	
+}
+
+void IIC_Wait_Ack()
+{
+
+	//GPIOB->CRH &= 0XFFF0FFFF;	//设置PB12为上拉输入模式
+	//GPIOB->CRH |= 0x00080000;
+//	OLED_SDA = 1;
+//	delay_us(1);
+	//OLED_SCL = 1;
+	//delay_us(50000);
+	while(1)
+	{
+		if(!OLED_SDA)				//判断是否接收到OLED 应答信号
+		{
+			//GPIOB->CRH &= 0XFFF0FFFF;	//设置PB12为通用推免输出模式
+			//GPIOB->CRH |= 0x00030000;
+			return;
+		}
+	}
+
+	OLED_SCLK_Set() ;
+	OLED_SCLK_Clr();
+}
+
+// IIC Write byte
+
+
+void Write_IIC_Byte(unsigned char IIC_Byte)
+{
+	unsigned char i;
+	unsigned char m,da;
+	da=IIC_Byte;
+	OLED_SCLK_Clr();
+	for(i=0;i<8;i++)		
+	{
+			m=da;
+		//	OLED_SCLK_Clr();
+		m=m&0x80;
+		if(m==0x80)
+		{OLED_SDIN_Set();}
+		else OLED_SDIN_Clr();
+			da=da<<1;
+		OLED_SCLK_Set();
+		OLED_SCLK_Clr();
+		}
+
+
+}
+
+#endif
+*/
 
 /**
   * @brief  从I2C1总线上的某一器件的某一起始地址中读取一定字节的数据到数组中
@@ -33,9 +108,9 @@ void HAL_I2C_Init(void)
   * @param  read_Buffer：存放读取数据的数组指针
   * @retval 是否读取成功
   */
-I2C_Status HAL_I2C_ReadBytes(I2C_TypeDef* I2Cx,uint8_t driver_Addr, uint8_t start_Addr, uint8_t number_Bytes, uint8_t *read_Buffer)
+hal_status hal_read_bytes(i2c_num i2cx, u8_t driver_addr, u8_t start_addr, u8_t bytes_len, u8_t *bytes)
 {
-  uint8_t read_Num;
+  u8_t read_Num;
   
   I2C_Timeout = I2C_TIMEOUT;
   while(I2C_GetFlagStatus(I2Cx, I2C_FLAG_BUSY) != RESET)
@@ -104,9 +179,9 @@ I2C_Status HAL_I2C_ReadBytes(I2C_TypeDef* I2Cx,uint8_t driver_Addr, uint8_t star
   * @param  write_Buffer：存放读取数据的数组指针
   * @retval 是否读取成功
   */
-I2C_Status HAL_I2C_WriteBytes(I2C_TypeDef* I2Cx, uint8_t driver_Addr, uint8_t start_Addr, uint8_t number_Bytes, uint8_t *write_Buffer)
+hal_status hal_write_bytes(i2c_num i2cx, u8_t driver_addr, u8_t start_addr, u8_t bytes_len, u8_t *bytes)
 {
-  uint8_t write_Num;
+  u8_t write_Num;
   
   I2C_Timeout = I2C_TIMEOUT;
   while(I2C_GetFlagStatus(I2Cx, I2C_FLAG_BUSY) != RESET)

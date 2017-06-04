@@ -530,6 +530,76 @@
               <FileType>1</FileType>
               <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_rcc.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f0xx_syscfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_syscfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_dbgmcu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_dbgmcu.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_cec.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_cec.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_comp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_comp.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_crc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_dac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_dac.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_pwr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_pwr.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_wwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_wwdg.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -759,7 +829,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <RoSelD>3</RoSelD>
@@ -885,7 +955,7 @@
             <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
-            <OneElfS>0</OneElfS>
+            <OneElfS>1</OneElfS>
             <Strict>0</Strict>
             <EnumInt>0</EnumInt>
             <PlainCh>0</PlainCh>
@@ -1017,6 +1087,49 @@
               <FileName>hal_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\hal\stm32f0\hal_spi.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <useXO>2</useXO>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
             </File>
             <File>
               <FileName>hal_int.c</FileName>
@@ -1067,6 +1180,76 @@
               <FileName>stm32f0xx_rcc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_rcc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_syscfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_syscfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_dbgmcu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_dbgmcu.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_cec.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_cec.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_comp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_comp.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_crc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_dac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_dac.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_pwr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_pwr.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_wwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\lib\stm32f0_std_lib\1.0\src\stm32f0xx_wwdg.c</FilePath>
             </File>
           </Files>
         </Group>

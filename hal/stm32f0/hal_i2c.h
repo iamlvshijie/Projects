@@ -5,14 +5,27 @@
 #define __HAL_I2C_H
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f0xx.h"
+#include "hal_core.h"
 
 /* Exported types ------------------------------------------------------------*/
 typedef enum
 {
   I2C_OK                                          = 1,
   I2C_FAIL                                        = 0
-}I2C_Status;
+};
+typedef enum
+{
+	i2c0,
+	i2c1,
+	i2c2
+}i2c_num;
+
+typedef struct
+{
+	u8_t i2c_Addr;
+	
+	
+}i2c_cfg_t;
 
 /* Exported constants --------------------------------------------------------*/
 #define I2C_IO_SIMULATION
@@ -21,9 +34,11 @@ typedef enum
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void HAL_I2C_Init(void);
-I2C_Status HAL_I2C_ReadBytes(I2C_TypeDef* I2Cx, uint8_t driver_Addr, uint8_t start_Addr, uint8_t number_Bytes, uint8_t *read_Buffer); 
-I2C_Status HAL_I2C_WriteBytes(I2C_TypeDef* I2Cx, uint8_t driver_Addr, uint8_t start_Addr, uint8_t number_Bytes, uint8_t *write_Buffer); 
+hal_status hal_i2c_init(i2c_num i2cx, i2c_cfg_t cfg);
+hal_status hal_i2c_read_bytes(i2c_num i2cx, uint8_t i2c_Addr, uint8_t start_Addr, uint8_t number_Bytes, uint8_t *p_bytes); 
+hal_status hal_i2c_read_bytes(i2c_num i2cx, uint8_t i2c_Addr, uint8_t start_Addr, uint8_t number_Bytes, uint8_t *p_bytes); 
+hal_status hal_i2c_read_byte(i2c_num i2cx, uint8_t i2c_Addr, uint8_t start_Addr, uint8_t data); 
+hal_status hal_i2c_read_byte(i2c_num i2cx, uint8_t i2c_Addr, uint8_t start_Addr, uint8_t data); 
 
 #endif
 
